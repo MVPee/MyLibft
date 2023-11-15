@@ -6,7 +6,7 @@
 /*   By: mvan-pee <mvan-pee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 08:54:15 by mvan-pee          #+#    #+#             */
-/*   Updated: 2023/11/15 09:07:03 by mvan-pee         ###   ########.fr       */
+/*   Updated: 2023/11/15 10:39:44 by mvan-pee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
 # endif
+# include <fcntl.h>
 # include <limits.h>
+# include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <fcntl.h>
-# include <stdarg.h>
 
 // LIBFT
 typedef struct s_list
@@ -80,12 +80,14 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 
 // PRINTF
 int					ft_printf(const char *format, ...);
+int					ft_printf_fd(int fd, const char *format, ...);
+
 int					ft_putchar_fd_l(char c, int fd);
 int					ft_putstr_fd_l(char *s, int fd);
 int					ft_putnbr_fd_l(int n, int fd);
 int					ft_u_putnbr_fd_l(unsigned int n, int fd);
-int					ft_hexadecimal(unsigned int x, char a);
-int					ft_pointer(size_t x);
+int					ft_hexadecimal(unsigned int x, char a, int fd);
+int					ft_pointer(size_t x, int fd);
 
 // GNL
 char				*get_next_line(int fd);

@@ -6,7 +6,7 @@
 /*   By: mvan-pee <mvan-pee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 13:12:15 by mvan-pee          #+#    #+#             */
-/*   Updated: 2023/11/15 09:08:10 by mvan-pee         ###   ########.fr       */
+/*   Updated: 2023/11/15 10:39:56 by mvan-pee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,23 @@ static int	ft_is_for_printf(char a)
 	return (0);
 }
 
-static int	ft_checkflag(va_list args, char a, int *len)
+static int	ft_checkflag(va_list args, char a, int *len, int fd)
 {
 	int	temp;
 
 	temp = 0;
 	if (a == 'c')
-		temp = ft_putchar_fd_l(va_arg(args, int), 1);
+		temp = ft_putchar_fd_l(va_arg(args, int), fd);
 	else if (a == 's')
-		temp = ft_putstr_fd_l(va_arg(args, char *), 1);
+		temp = ft_putstr_fd_l(va_arg(args, char *), fd);
 	else if (a == 'p')
-		temp = ft_pointer(va_arg(args, size_t));
+		temp = ft_pointer(va_arg(args, size_t), fd);
 	else if (a == 'd' || a == 'i')
-		temp = ft_putnbr_fd_l(va_arg(args, int), 1);
+		temp = ft_putnbr_fd_l(va_arg(args, int), fd);
 	else if (a == 'u')
-		temp = ft_u_putnbr_fd_l(va_arg(args, unsigned int), 1);
+		temp = ft_u_putnbr_fd_l(va_arg(args, unsigned int), fd);
 	else if (a == 'x' || a == 'X')
-		temp = ft_hexadecimal(va_arg(args, unsigned int), a);
+		temp = ft_hexadecimal(va_arg(args, unsigned int), a, fd);
 	else if (a == '%')
 		temp = ft_putchar_fd_l('%', 1);
 	else
@@ -48,7 +48,8 @@ static int	ft_checkflag(va_list args, char a, int *len)
 	return (*len);
 }
 
-static int	process_format(const char *format, va_list args, int *len_ptr)
+static int	process_format(const char *format, va_list args, int *len_ptr,
+		int fd)
 {
 	int	i;
 	int	len;
@@ -59,14 +60,14 @@ static int	process_format(const char *format, va_list args, int *len_ptr)
 	{
 		if (format[i] == '%' && ft_is_for_printf(format[i + 1]))
 		{
-			len = ft_checkflag(args, format[i + 1], &len);
+			len = ft_checkflag(args, format[i + 1], &len, fd);
 			if (len < 0)
 				return (-1);
 			i++;
 		}
 		else
 		{
-			len += ft_putchar_fd_l(format[i], 1);
+			len += ft_putchar_fd_l(format[i], fd);
 			if (len < 0)
 				return (-1);
 		}
@@ -76,6 +77,22 @@ static int	process_format(const char *format, va_list args, int *len_ptr)
 	return (0);
 }
 
+int	ft_printf_fd(int fd, const char *format, ...)
+{
+	va_list	args;
+	int		len;
+
+	len = 0;
+	va_start(args, format);
+	if (process_format(format, args, &len, fd) < 0)
+	{
+		va_end(args);
+		return (-1);
+	}
+	va_end(args);
+	return (len);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
@@ -83,7 +100,7 @@ int	ft_printf(const char *format, ...)
 
 	len = 0;
 	va_start(args, format);
-	if (process_format(format, args, &len) < 0)
+	if (process_format(format, args, &len, 1) < 0)
 	{
 		va_end(args);
 		return (-1);
