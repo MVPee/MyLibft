@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 08:54:15 by mvan-pee          #+#    #+#             */
-/*   Updated: 2023/11/17 13:59:20 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/11/18 15:21:18 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 # include <fcntl.h>
 # include <limits.h>
 # include <stdarg.h>
+# include <stdint.h>
 # include <stdlib.h>
-# include <unistd.h>
+# include <unistd.h> //for linux
 
 // LIBFT
 typedef struct s_list
