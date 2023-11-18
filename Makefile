@@ -2,6 +2,11 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
+RED=\033[0;31m
+GREEN=\033[0;32m
+YELLOW=\033[1;33m
+NC=\033[0m
+
 LIBFT_SRCS =	srcs/libft/ft_isalpha.c \
 				srcs/libft/ft_isdigit.c \
 				srcs/libft/ft_isalnum.c \
@@ -62,18 +67,23 @@ SRCS = $(LIBFT_SRCS) $(GNL_SRCS) $(PRINTF_SRCS)
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
+	@echo "${GREEN}Compilation complete.${NC}"
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
+	@echo "${YELLOW}Library $(NAME) created.${NC}"
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "${RED}Compiling $<...${NC}"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
+	@echo "${GREEN}Object files cleaned.${NC}"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "${RED}Library removed.${NC}"
 
 re: fclean all
 
