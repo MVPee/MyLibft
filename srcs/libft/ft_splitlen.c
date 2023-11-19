@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_splitlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvpee <mvpee@19.be>                        +#+  +:+       +#+        */
+/*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 12:14:41 by mvpee             #+#    #+#             */
-/*   Updated: 2023/11/19 12:14:41 by mvpee            ###   ########.fr       */
+/*   Created: 2023/11/19 16:39:37 by mvpee             #+#    #+#             */
+/*   Updated: 2023/11/19 16:39:37 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-size_t  ft_splitlen(const char **src)
+size_t	ft_splitlen(const char **src)
 {
-    size_t i;
+	size_t	i;
 
-    i = 0;
-    while(src[i])
-        i++;
-    return (i);
+	i = 0;
+	while (src[i])
+		i++;
+	return (i);
 }
