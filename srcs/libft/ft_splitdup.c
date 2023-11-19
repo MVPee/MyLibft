@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup_split.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mvpee <mvpee@19.be>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 13:48:45 by mvpee             #+#    #+#             */
-/*   Updated: 2023/11/17 13:57:35 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/11/19 11:42:59 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static char	**copy_string_array(const char **src, char **dest, int index)
 	return (copy_string_array(src, dest, index + 1));
 }
 
-char	**ft_strdup_split(const char **src)
+char	**ft_splitdup(const char **src)
 {
 	int		count;
 	char	**dest;

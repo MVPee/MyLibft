@@ -50,7 +50,8 @@ LIBFT_SRCS =	srcs/libft/ft_isalpha.c \
 				srcs/libft/ft_lstclear_bonus.c \
 				srcs/libft/ft_lstiter_bonus.c \
 				srcs/libft/ft_lstmap_bonus.c \
-				srcs/libft/ft_strdup_split.c
+				srcs/libft/ft_splitdup.c \
+				srcs/libft/ft_splitlen.c
 
 GNL_SRCS = 		srcs/gnl/get_next_line.c
 
