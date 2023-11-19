@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@19.be>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 08:54:15 by mvan-pee          #+#    #+#             */
-/*   Updated: 2023/11/19 11:45:51 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/11/19 14:28:43 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 
 char				**ft_splitdup(const char **src);
 size_t				ft_splitlen(const char **src);
+char 				*ft_read(int fd);
+char				*ft_strjoin_free(char *s1, char *s2);
 
 // PRINTF
 int					ft_printf(const char *format, ...);
