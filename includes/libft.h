@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 08:54:15 by mvan-pee          #+#    #+#             */
-/*   Updated: 2023/11/21 12:48:44 by mvan-pee         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:31:55 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,9 @@ size_t				ft_splitlen(const char **src);
 char				*ft_read(int fd);
 char				*ft_strjoin_free(char *s1, char *s2);
 int					ft_ischarin(char c, char *str);
+int					ft_strcmp(const char *s1, const char *s2);
+void				ft_free_split(char **split);
+void				ft_free(void *p);
 
 // PRINTF
 int					ft_printf(const char *format, ...);

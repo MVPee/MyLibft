@@ -54,7 +54,10 @@ LIBFT_SRCS =	srcs/libft/ft_isalpha.c \
 				srcs/libft/ft_splitlen.c \
 				srcs/libft/ft_read.c \
 				srcs/libft/ft_strjoin_free.c \
-				srcs/libft/ft_ischarin.c
+				srcs/libft/ft_ischarin.c \
+				srcs/libft/ft_strcmp.c \
+				srcs/libft/ft_free_split.c \
+				srcs/libft/ft_free.c
 
 GNL_SRCS = 		srcs/gnl/get_next_line.c
 
