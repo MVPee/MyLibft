@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mvan-pee <mvan-pee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 08:54:15 by mvan-pee          #+#    #+#             */
-/*   Updated: 2023/11/22 15:31:55 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/04 12:59:06 by mvan-pee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char				*ft_read(int fd);
 char				*ft_strjoin_free(char *s1, char *s2);
 int					ft_ischarin(char c, char *str);
 int					ft_strcmp(const char *s1, const char *s2);
-void				ft_free_split(char **split);
+void				ft_free_split(void **split);
 void				ft_free(void *p);
 
 // PRINTF

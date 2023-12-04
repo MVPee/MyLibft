@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_split.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mvan-pee <mvan-pee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:23:11 by mvpee             #+#    #+#             */
-/*   Updated: 2023/11/22 15:34:34 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/04 12:58:43 by mvan-pee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-void	ft_free_split(char **split)
+void	ft_free_split(void **split)
 {
 	int	i;
 
