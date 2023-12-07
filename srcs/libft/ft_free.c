@@ -3,20 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvan-pee <mvan-pee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:32:53 by mvpee             #+#    #+#             */
-/*   Updated: 2023/11/24 10:47:41 by mvan-pee         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:51:07 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-void	ft_free(void *p)
+void	ft_free(unsigned int count, ...)
 {
-	if (p)
+	va_list	args;
+	void	**tmp;
+
+	va_start(args, count);
+	while (count--)
 	{
-		free(p);
-		p = NULL;
+		tmp = va_arg(args, void **);
+		if (*tmp)
+		{
+			free(*tmp);
+			*tmp = NULL;
+		}
 	}
+	va_end(args);
 }
